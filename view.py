@@ -1,4 +1,5 @@
 import text
+from typing import Union
 
 
 def show_main_menu():
@@ -31,16 +32,11 @@ def show_contacts(data: dict[int, list], msg_error: str):
         message(msg_error)
 
 
-def input_data(msg_list: list[str] | str, single: bool = False) -> list[str] | str:
+# def input_data(msg: list[str] | str, single: bool = False) -> list[str] | str:
+def input_data(msg: Union[list[str], str], single: bool = False) -> list[str] | str:
     # data = []
     # for row in msg_list:
     #     data.append(input(row))
     # return data
-    in_data = input(msg_list) if single else [input(row) for row in msg_list]
+    in_data = input(msg) if single else [input(row) for row in msg]
     return in_data
-
-
-if __name__ == '__main__':
-    # show_main_menu()
-    num = main_menu_user_choice()
-    print(num)
